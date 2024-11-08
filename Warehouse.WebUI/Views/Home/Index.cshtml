@@ -1,0 +1,16 @@
+﻿@using Warehouse.Domain.Entities;
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Product Page";
+}
+
+
+<h3 class="p-3 mb-2 bg-primary text-white">Products</h3>
+<table class="table">
+    <tr><td>Id</td><td>Name</td><td>Article</td><td>Category</td><td>Amount</td><td>UnitOfMeasurement</td><td>StoragePlace</td></tr>
+    @foreach (var p in Model)
+    {
+        <tr><td>@p.ID</td><td>@p.Name</td><td>@p.Article</td><td>@p.Category</td><td>@p.Amount</td><td>@p.UnitOfMeasurement</td><td>@p.StoragePlace</td></tr>
+    }
+</table>
