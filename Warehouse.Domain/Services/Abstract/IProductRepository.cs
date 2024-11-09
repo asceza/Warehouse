@@ -9,9 +9,10 @@ namespace Warehouse.DAL.Abstract
 {
     public interface IProductRepository
     {
-        public void AddNewProduct(Product product);
+        public bool AddNewProduct(Product product);
         //void UpdateProduct(ProductEntity product);
         public Product GetProductByArticle(string article);
+        public Product GetProductById(int id);
         public int DeleteProductById(int id);
 
         /// <summary>
@@ -20,7 +21,6 @@ namespace Warehouse.DAL.Abstract
         /// <returns>Количество удаленных элементов</returns>
         public int DeleteProductByArticle(string article);
         public List<Product> GetAllProducts();
-
         public void UpdateProduct(Product product);
     }
 }

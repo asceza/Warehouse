@@ -29,7 +29,7 @@ namespace Warehouse.WebUI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<Product> products = _productService.GetAllProduct();
+            List<Product> products = _productService.GetAllProducts();
             return View(products);
         }
 

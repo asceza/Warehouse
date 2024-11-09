@@ -19,9 +19,21 @@ namespace Warehouse.DAL
             _filePath = filePath;
         }
 
-        public void AddNewProduct(Product product)
+        public bool AddNewProduct(Product product)
         {
-            throw new NotImplementedException();
+            List<Product> products = GetAllProducts();
+            products.Add(product);
+            File.WriteAllText(_filePath, JsonConvert.SerializeObject(products));
+
+            var foundedProduct = GetProductById(product.ID);
+            if (foundedProduct == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public int DeleteProductByArticle(string article)
@@ -57,6 +69,13 @@ namespace Warehouse.DAL
         public Product GetProductByArticle(string article)
         {
             throw new NotImplementedException();
+        }
+
+        public Product GetProductById(int id)
+        {
+            var products = GetAllProducts();
+            var selectProduct = (Product)products.FirstOrDefault(p => p.ID == id);
+            return selectProduct;
         }
 
         public void UpdateProduct(Product product)

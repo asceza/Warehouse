@@ -17,12 +17,8 @@ namespace Warehouse.Domain.Entities
         public UnitOfMeasurement UnitOfMeasurement { get; set; }
         public string StoragePlace { get; set; } // xxx-xxx-xxx
 
-        public Product(string name, ProductCategory productCategory)
+        public Product()
         {
-            Name = name;
-            Category = productCategory;
         }
-
-
     }
 }

@@ -77,10 +77,10 @@ namespace Warehouse.WebUI
                 // указывает, что если URL начинается с `/Product`, последует имя действия и, возможно, `id`
                 // устанавливает контроллер по умолчанию как `Product` и действие по умолчанию
                 // как `Index`. При обращении к URL `/Product` будет вызвано действие `Index` контроллера `Product`.
-                endpoints.MapControllerRoute(
-                    name: "product",
-                    pattern: "Product/{action}/{id?}",
-                    defaults: new { controller = "Product", action = "Index" });
+                //endpoints.MapControllerRoute(
+                //    name: "product",
+                //    pattern: "Product/{action}/{id?}",
+                //    defaults: new { controller = "Product", action = "Index" });
             });
         }
     }

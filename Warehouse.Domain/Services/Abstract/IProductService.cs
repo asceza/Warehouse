@@ -9,6 +9,8 @@ namespace Warehouse.Domain.Services.Abstract
 {
     public interface IProductService
     {
-        public List<Product> GetAllProduct();
+        public List<Product> GetAllProducts();
+        public bool AddNewProduct(Product product);
+        public Product GetProductById(int id);
     }
 }
