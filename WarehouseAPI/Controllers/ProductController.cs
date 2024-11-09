@@ -25,7 +25,11 @@ namespace Warehouse.WebAPI.Controllers
             _productService = productService;
         }
 
-
+        /// <summary>
+        /// Добавление нового продукта
+        /// </summary>
+        /// <param name="newProduct">Данные нового продукта.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult<bool> AddNewProduct(Product newProduct)
         {
@@ -37,8 +41,10 @@ namespace Warehouse.WebAPI.Controllers
             return Ok(result);
         }
 
-        /*
-        // Метод для получения списка всех продуктов
+        /// <summary>
+        /// Получение списка всех продуктов
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<IEnumerable<Product>> GetAllProducts()
         {
@@ -46,31 +52,37 @@ namespace Warehouse.WebAPI.Controllers
             return Ok(products);
         }
 
-        // Метод для удаления продукта
-        [HttpDelete("{id}")]
-        public ActionResult<bool> DeleteProduct(int id)
-        {
-            var result = _productService.DeleteProduct(id);
-            if (!result)
-            {
-                return NotFound("Product not found.");
-            }
-            return Ok(result);
-        }
-
-        // Метод для получения конкретного продукта по ID
+        /// <summary>
+        /// Получение конкретного продукта по ID
+        /// </summary>
+        /// <param name="id">Id продукта</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public ActionResult<Product> GetProductById(int id)
         {
             var product = _productService.GetProductById(id);
             if (product == null)
             {
-                return NotFound("Product not found.");
+                return NotFound("Product not found (Продукт не найден)");
             }
             return Ok(product);
         }
 
-        */
+        /// <summary>
+        /// Удаление конкретного продукта по ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
+        public ActionResult<bool> DeleteProductById(int id)
+        {
+            var numberDeletedElement = _productService.DeleteProductById(id);
+            if (numberDeletedElement < 1)
+            {
+                return NotFound("Product not found (Продукт не найден)");
+            }
+            return Ok(numberDeletedElement);
+        }
     }
 
 

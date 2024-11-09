@@ -12,5 +12,6 @@ namespace Warehouse.Domain.Services.Abstract
         public List<Product> GetAllProducts();
         public bool AddNewProduct(Product product);
         public Product GetProductById(int id);
+        public int DeleteProductById(int id);
     }
 }

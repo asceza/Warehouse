@@ -10,6 +10,10 @@ namespace Warehouse.Domain.Entities
     public class Product
     {
         public int ID { get; set; }
+
+        /// <summary>
+        /// Название
+        /// </summary>
         public string Name { get; set; }
         public string Article { get; set; }
         public ProductCategory Category { get; set; }

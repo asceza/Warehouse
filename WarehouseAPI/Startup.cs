@@ -15,6 +15,8 @@ using Warehouse.DAL.Abstract;
 using Warehouse.DAL;
 using Warehouse.Domain.Services.Abstract;
 using Warehouse.Domain.Services;
+using System.IO;
+using System.Reflection;
 
 namespace WarehouseAPI
 {
@@ -40,6 +42,11 @@ namespace WarehouseAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WarehouseAPI", Version = "v1" });
+
+                // Добавляем поддержку XML комментариев, если они сгенерированы
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 
@@ -50,7 +57,11 @@ namespace WarehouseAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WarehouseAPI v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "WarehouseAPI v1");
+                    //c.RoutePrefix = string.Empty; // Доступ к Swagger UI по адресу "http://<host>:<port>/"
+                });
             }
 
             app.UseHttpsRedirection();

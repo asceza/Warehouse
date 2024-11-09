@@ -13,7 +13,6 @@ namespace Warehouse.Domain.Services
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-
         public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
@@ -67,6 +66,12 @@ namespace Warehouse.Domain.Services
         {
             var product = _productRepository.GetProductById(id);
             return product;
+        }
+
+        public int DeleteProductById(int id)
+        {
+            int numberDeletedElement = _productRepository.DeleteProductById(id);
+            return numberDeletedElement;
         }
     }
 }

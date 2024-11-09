@@ -43,19 +43,14 @@ namespace Warehouse.DAL
 
         public int DeleteProductById(int id)
         {
-            throw new NotImplementedException();
+            List<Product> products = GetAllProducts();
+            int numberDeletedElement = products.RemoveAll(p => p.ID == id);
+            File.WriteAllText(_filePath, JsonConvert.SerializeObject(products));
+            return numberDeletedElement;
         }
 
         public List<Product> GetAllProducts()
         {
-            //List<Product> products = new List<Product>
-            //{
-            //    new Product("Продукт_1", Domain.Core.ProductCategory.Fasteners),
-            //    new Product("Продукт_2", Domain.Core.ProductCategory.Clothes),
-            //    new Product("Продукт_3", Domain.Core.ProductCategory.Liquid)
-            //};
-            //return products;
-
             if (!File.Exists(_filePath))
             {
                 //System.IO.File.Create(_filePath);
