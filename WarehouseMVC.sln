@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		comment.md = comment.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseAPI", "WarehouseAPI\WarehouseAPI.csproj", "{DC2AF4C0-37BA-4312-A6B3-9F1FD3CE796E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.API", "Warehouse.API\Warehouse.API.csproj", "{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +40,10 @@ Global
 		{46635FF3-1E5A-4482-AB6B-090B98D1CD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46635FF3-1E5A-4482-AB6B-090B98D1CD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46635FF3-1E5A-4482-AB6B-090B98D1CD6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC2AF4C0-37BA-4312-A6B3-9F1FD3CE796E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC2AF4C0-37BA-4312-A6B3-9F1FD3CE796E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC2AF4C0-37BA-4312-A6B3-9F1FD3CE796E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC2AF4C0-37BA-4312-A6B3-9F1FD3CE796E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
