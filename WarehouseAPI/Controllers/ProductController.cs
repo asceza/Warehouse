@@ -5,10 +5,10 @@ using Warehouse.DAL.Abstract;
 using Warehouse.Domain.Entities;
 using Warehouse.Domain.Services;
 using Warehouse.Domain.Services.Abstract;
-using Warehouse.WebUI.Models;
-using Warehouse.WebUI.Services;
+using Warehouse.WebAPI.Models;
+using Warehouse.WebAPI.Services;
 
-namespace Warehouse.WebUI.Controllers
+namespace Warehouse.WebAPI.Controllers
 {
 
     [Route("api/[controller]")] // /api/product
