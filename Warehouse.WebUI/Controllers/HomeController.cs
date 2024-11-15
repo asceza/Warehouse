@@ -2,10 +2,9 @@
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Warehouse.DAL.Abstract;
+using Warehouse.Domain.Contracts;
 using Warehouse.Domain.Entities;
 using Warehouse.Domain.Services;
-using Warehouse.Domain.Services.Abstract;
 using Warehouse.WebUI.Models;
 
 

@@ -12,10 +12,10 @@ namespace Warehouse.Domain.Core
         /// <summary>
         /// Штука
         /// </summary>
-        Thing,
+        Unit,
         Kg,
         Gr,
-        Meter,
-        Liter
+        Metre,
+        Litre
     }
 }

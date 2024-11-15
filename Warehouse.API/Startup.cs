@@ -11,12 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Warehouse.DAL.Abstract;
 using Warehouse.DAL;
-using Warehouse.Domain.Services.Abstract;
 using Warehouse.Domain.Services;
 using System.IO;
 using System.Reflection;
+using Warehouse.Domain.Contracts;
 
 namespace WarehouseAPI
 {

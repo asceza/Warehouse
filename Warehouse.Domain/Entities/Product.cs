@@ -9,7 +9,7 @@ namespace Warehouse.Domain.Entities
 {
     public class Product
     {
-        public int ID { get; set; }
+        public int ID { get; private set; }
 
         /// <summary>
         /// Название

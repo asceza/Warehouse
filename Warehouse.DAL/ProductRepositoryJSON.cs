@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warehouse.DAL.Abstract;
+using Warehouse.Domain.Contracts;
 using Warehouse.Domain.Entities;
 
 namespace Warehouse.DAL

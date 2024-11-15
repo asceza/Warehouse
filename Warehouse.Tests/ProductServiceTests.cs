@@ -24,7 +24,7 @@ namespace Warehouse.Tests
                 Article = "111111",
                 Category = Domain.Core.ProductCategory.Clothes,
                 Amount = 111,
-                UnitOfMeasurement = Domain.Core.UnitOfMeasurement.Thing,
+                UnitOfMeasurement = Domain.Core.UnitOfMeasurement.Unit,
                 StoragePlace = "111-111-111"
             };
 
@@ -47,7 +47,7 @@ namespace Warehouse.Tests
                 Article = "111111",
                 Category = Domain.Core.ProductCategory.Clothes,
                 Amount = 111,
-                UnitOfMeasurement = Domain.Core.UnitOfMeasurement.Thing,
+                UnitOfMeasurement = Domain.Core.UnitOfMeasurement.Unit,
                 StoragePlace = "111-111-11"
             };
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Warehouse.Domain.Entities;
 
-namespace Warehouse.DAL.Abstract
+namespace Warehouse.Domain.Contracts
 {
     public interface IProductRepository
     {

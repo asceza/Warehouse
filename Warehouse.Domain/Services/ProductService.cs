@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Warehouse.DAL.Abstract;
+using Warehouse.Domain.Contracts;
 using Warehouse.Domain.Entities;
-using Warehouse.Domain.Services.Abstract;
 
 namespace Warehouse.Domain.Services
 {

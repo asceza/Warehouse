@@ -8,12 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Warehouse.DAL.Abstract;
 using Warehouse.Domain.Services;
-using Warehouse.Domain.Services.Abstract;
 using Warehouse.DAL;
 using Microsoft.AspNetCore.Mvc;
 using static System.Collections.Specialized.BitVector32;
+using Warehouse.Domain.Contracts;
 
 
 namespace Warehouse.WebUI
