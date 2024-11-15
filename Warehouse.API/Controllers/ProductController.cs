@@ -16,12 +16,10 @@ namespace Warehouse.WebAPI.Controllers
 
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
         private readonly IProductService _productService;
 
-        public ProductController(IProductRepository productRepository, IProductService productService)
+        public ProductController(IProductService productService)
         {
-            _productRepository = productRepository;
             _productService = productService;
         }
 

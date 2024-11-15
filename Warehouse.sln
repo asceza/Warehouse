@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{235BC629-F662-49E2-B93E-43C6064B2372}"
 	ProjectSection(SolutionItems) = preProject
 		comment.md = comment.md
+		review_3.md = review_3.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.API", "Warehouse.API\Warehouse.API.csproj", "{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}"
