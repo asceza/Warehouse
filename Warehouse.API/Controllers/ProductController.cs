@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Warehouse.DAL;
-using Warehouse.DAL.Abstract;
 using Warehouse.Domain.Contracts;
 using Warehouse.Domain.Entities;
 using Warehouse.Domain.Services;
