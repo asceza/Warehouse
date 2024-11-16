@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Warehouse.DAL;
+using Warehouse.API.Models;
 using Warehouse.Domain.Contracts;
 using Warehouse.Domain.Entities;
-using Warehouse.Domain.Services;
-using Warehouse.WebAPI.Models;
-using Warehouse.WebAPI.Services;
 
 namespace Warehouse.WebAPI.Controllers
 {
@@ -23,15 +20,16 @@ namespace Warehouse.WebAPI.Controllers
             _productService = productService;
         }
 
+
         /// <summary>
         /// Добавление нового продукта
         /// </summary>
-        /// <param name="newProductDTO">Данные нового продукта.</param>
-        /// <returns></returns>
+        /// <param name="newProduct">Данные нового продукта</param>
+        /// <returns>Id нового товара</returns>
         [HttpPost]
-        public ActionResult<int> AddNewProduct(CreateProductRequest newProductDTO)
+        public ActionResult<int> AddNewProduct(CreateProductRequest newProduct)
         {
-            var id = _productService.AddNewProduct(newProductDTO.ToProduct());
+            var id = _productService.AddNewProduct(newProduct.ToProduct());
             if (id == - 1)
             {
                 return BadRequest("Unable to add product (Невозможно добавить продукт)");
@@ -39,16 +37,24 @@ namespace Warehouse.WebAPI.Controllers
             return Ok(id);
         }
 
+
         /// <summary>
         /// Получение списка всех продуктов
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Список продуктов</returns>
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> GetAllProducts()
+        public ActionResult<IEnumerable<ProductResponse>> GetAllProducts()
         {
-            var products = _productService.GetAllProducts();
+            List<Product> products = _productService.GetAllProducts();
+            List<ProductResponse> productsResponse = new List<ProductResponse>();
+
+            foreach (var product in products)
+            {
+                productsResponse.Add(product.ToProductResponse());
+            }
             return Ok(products);
         }
+
 
         /// <summary>
         /// Получение конкретного продукта по ID
@@ -56,30 +62,31 @@ namespace Warehouse.WebAPI.Controllers
         /// <param name="id">Id продукта</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public ActionResult<Product> GetProductById(int id)
+        public ActionResult<ProductResponse> GetProductById(int id)
         {
             var product = _productService.GetProductById(id);
             if (product == null)
             {
-                return NotFound("Product not found (Продукт не найден)");
+                return NotFound($"Product with id = {id} not found (Продукт с id = {id} не найден)");
             }
             return Ok(product.ToProductResponse());
         }
 
+
         /// <summary>
-        /// Удаление конкретного продукта по ID
+        /// Удаление продукта по ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         public ActionResult<bool> DeleteProductById(int id)
         {
-            var numberDeletedElement = _productService.DeleteProductById(id);
-            if (numberDeletedElement < 1)
+            bool isProductDeleted = _productService.DeleteProductById(id);
+            if (!isProductDeleted)
             {
                 return NotFound("Product not found (Продукт не найден)");
             }
-            return Ok(numberDeletedElement);
+            return Ok(isProductDeleted);
         }
     }
 

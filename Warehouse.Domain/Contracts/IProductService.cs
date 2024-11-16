@@ -12,6 +12,6 @@ namespace Warehouse.Domain.Contracts
         public List<Product> GetAllProducts();
         public int AddNewProduct(Product product);
         public Product GetProductById(int id);
-        public int DeleteProductById(int id);
+        public bool DeleteProductById(int id);
     }
 }

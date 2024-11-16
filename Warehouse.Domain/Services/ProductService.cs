@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Warehouse.Domain.Contracts;
 using Warehouse.Domain.Entities;
 
@@ -17,6 +13,12 @@ namespace Warehouse.Domain.Services
             _productRepository = productRepository;
         }
 
+
+        /// <summary>
+        /// Добавление нового продукта
+        /// </summary>
+        /// <param name="newProduct"></param>
+        /// <returns>Id нового продукта</returns>
         public int AddNewProduct(Product newProduct)
         {
             int id = _productRepository.AddNewProduct(newProduct);
@@ -34,31 +36,37 @@ namespace Warehouse.Domain.Services
             //}
         }
 
+
         public List<Product> GetAllProducts()
         {
-            var products = _productRepository.GetAllProducts();
+            List<Product> products = _productRepository.GetAllProducts();
             return products;
         }
 
-        private bool IsStoragePlaceCorrect(string storagePlace)
-        {
-            string pattern = @"^\d{3}-\d{3}-\d{3}"; // Маска xxx-xxx-xxx
-            bool isStoragePlaceCorrect = Regex.IsMatch(storagePlace, pattern);
-            return isStoragePlaceCorrect;
-        }
+        //private bool IsStoragePlaceCorrect(string storagePlace)
+        //{
+        //    string pattern = @"^\d{3}-\d{3}-\d{3}"; // Маска xxx-xxx-xxx
+        //    bool isStoragePlaceCorrect = Regex.IsMatch(storagePlace, pattern);
+        //    return isStoragePlaceCorrect;
+        //}
 
 
 
         public Product GetProductById(int id)
         {
-            var product = _productRepository.GetProductById(id);
+            Product product = _productRepository.GetProductById(id);
             return product;
         }
 
-        public int DeleteProductById(int id)
+        /// <summary>
+        /// Удаление продукта по id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Успешность удаления</returns>
+        public bool DeleteProductById(int id)
         {
-            int numberDeletedElement = _productRepository.DeleteProductById(id);
-            return numberDeletedElement;
+            bool isProductDeleted = _productRepository.DeleteProductById(id);
+            return isProductDeleted;
         }
     }
 }

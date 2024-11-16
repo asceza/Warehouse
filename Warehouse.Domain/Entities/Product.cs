@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warehouse.Domain.Core;
+﻿using Warehouse.Domain.Core;
 
 namespace Warehouse.Domain.Entities
 {
     public class Product
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         //public int ID { get; private set; }
         public string Name { get; set; }
         public string Article { get; set; }
         public ProductCategory Category { get; set; }
         public float Amount { get; set; }
-        public UnitOfMeasurement UnitOfMeasurement { get; set; }
+        public UnitOfMeasurement UnitOfMeasurement { get; private set; }
         public string StoragePlace { get; set; } // xxx-xxx-xxx
 
+
+
+        public Product(UnitOfMeasurement unitOfMeasurement)
+        {
+            UnitOfMeasurement = unitOfMeasurement;
+        }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Linq;
 using Warehouse.API.Models;
+using Warehouse.Domain.Core;
 using Warehouse.Domain.Entities;
 
 namespace Warehouse.Domain.Contracts
@@ -18,15 +16,14 @@ namespace Warehouse.Domain.Contracts
             }
             else
             {
-                return new Product
-                {
-                    Name = product.Name,
-                    Article = product.Article,
-                    Category = product.Category,
-                    Amount = product.Amount,
-                    UnitOfMeasurement = product.UnitOfMeasurement,
-                    StoragePlace = product.StoragePlace,
-                };
+                Product newProduct = new Product(product.UnitOfMeasurement);
+                newProduct.Name = product.Name;
+                newProduct.Article = product.Article;
+                newProduct.Category = product.Category;
+                newProduct.Amount = product.Amount;
+                newProduct.StoragePlace = product.StoragePlace;
+
+                return newProduct;
             }
         }
 
@@ -40,7 +37,7 @@ namespace Warehouse.Domain.Contracts
             {
                 return new ProductResponse
                 {
-                    ID = product.ID,
+                    Id = product.Id,
                     Name = product.Name,
                     Article = product.Article,
                     Category = product.Category,

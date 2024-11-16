@@ -4,7 +4,7 @@ namespace Warehouse.API.Models
 {
     public class ProductResponse
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         //public int ID { get; private set; }
         public string Name { get; set; }
         public string Article { get; set; }
