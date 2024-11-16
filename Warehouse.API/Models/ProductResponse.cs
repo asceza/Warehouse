@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warehouse.Domain.Core;
+﻿using Warehouse.Domain.Core;
 
-namespace Warehouse.Domain.Entities
+namespace Warehouse.API.Models
 {
-    public class Product
+    public class ProductResponse
     {
         public int ID { get; set; }
         //public int ID { get; private set; }
@@ -17,6 +12,5 @@ namespace Warehouse.Domain.Entities
         public float Amount { get; set; }
         public UnitOfMeasurement UnitOfMeasurement { get; set; }
         public string StoragePlace { get; set; } // xxx-xxx-xxx
-
     }
 }

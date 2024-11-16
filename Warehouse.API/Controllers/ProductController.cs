@@ -13,6 +13,7 @@ namespace Warehouse.WebAPI.Controllers
     [Route("api/[controller]")] // /api/product
     [ApiController]
 
+    
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -25,17 +26,17 @@ namespace Warehouse.WebAPI.Controllers
         /// <summary>
         /// Добавление нового продукта
         /// </summary>
-        /// <param name="newProduct">Данные нового продукта.</param>
+        /// <param name="newProductDTO">Данные нового продукта.</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<bool> AddNewProduct(Product newProduct)
+        public ActionResult<int> AddNewProduct(CreateProductRequest newProductDTO)
         {
-            var result = _productService.AddNewProduct(newProduct);
-            if (!result)
+            var id = _productService.AddNewProduct(newProductDTO.ToProduct());
+            if (id == - 1)
             {
                 return BadRequest("Unable to add product (Невозможно добавить продукт)");
             }
-            return Ok(result);
+            return Ok(id);
         }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace Warehouse.WebAPI.Controllers
             {
                 return NotFound("Product not found (Продукт не найден)");
             }
-            return Ok(product);
+            return Ok(product.ToProductResponse());
         }
 
         /// <summary>

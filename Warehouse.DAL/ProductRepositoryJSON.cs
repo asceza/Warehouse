@@ -19,20 +19,42 @@ namespace Warehouse.DAL
             _filePath = filePath;
         }
 
-        public bool AddNewProduct(Product product)
+        /// <summary>
+        /// Добавление нового товара
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns>Id</returns>
+        public int AddNewProduct(Product product)
         {
             List<Product> products = GetAllProducts();
+            product.ID = GetProductCount() + 1;
             products.Add(product);
             File.WriteAllText(_filePath, JsonConvert.SerializeObject(products));
 
             var foundedProduct = GetProductById(product.ID);
             if (foundedProduct == null)
             {
-                return false;
+                return -1;
             }
             else
             {
-                return true;
+                return product.ID;
+            }
+        }
+
+
+        public int GetProductCount()
+        {
+            var products = GetAllProducts();
+
+            if (products.Count == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                int ID = products.Max(k => k.ID);
+                return ID;
             }
         }
 

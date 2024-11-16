@@ -10,7 +10,7 @@ namespace Warehouse.Domain.Contracts
     public interface IProductService
     {
         public List<Product> GetAllProducts();
-        public bool AddNewProduct(Product product);
+        public int AddNewProduct(Product product);
         public Product GetProductById(int id);
         public int DeleteProductById(int id);
     }

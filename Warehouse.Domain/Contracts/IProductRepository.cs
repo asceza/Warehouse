@@ -9,7 +9,7 @@ namespace Warehouse.Domain.Contracts
 {
     public interface IProductRepository
     {
-        public bool AddNewProduct(Product product);
+        public int AddNewProduct(Product product);
         //void UpdateProduct(ProductEntity product);
         public Product GetProductByArticle(string article);
         public Product GetProductById(int id);
@@ -21,6 +21,8 @@ namespace Warehouse.Domain.Contracts
         /// <returns>Количество удаленных элементов</returns>
         public int DeleteProductByArticle(string article);
         public List<Product> GetAllProducts();
+
+        public int GetProductCount();
         public void UpdateProduct(Product product);
     }
 }

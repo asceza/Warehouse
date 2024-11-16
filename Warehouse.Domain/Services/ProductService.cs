@@ -17,26 +17,27 @@ namespace Warehouse.Domain.Services
             _productRepository = productRepository;
         }
 
+        public int AddNewProduct(Product newProduct)
+        {
+            int id = _productRepository.AddNewProduct(newProduct);
+            return id;
+            //newProduct.ID = IncrementProductId();
+            //bool isStoragePlaceCorrect = IsStoragePlaceCorrect(newProduct.StoragePlace);
+            //if (isStoragePlaceCorrect)
+            //{
+            //    var isProductAdded = _productRepository.AddNewProduct(newProduct);
+            //    return isProductAdded;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+        }
 
         public List<Product> GetAllProducts()
         {
             var products = _productRepository.GetAllProducts();
             return products;
-        }
-
-        public bool AddNewProduct(Product newProduct)
-        {
-            newProduct.ID = IncrementProductId();
-            bool isStoragePlaceCorrect = IsStoragePlaceCorrect(newProduct.StoragePlace);
-            if (isStoragePlaceCorrect)
-            {
-                var isProductAdded = _productRepository.AddNewProduct(newProduct);
-                return isProductAdded;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         private bool IsStoragePlaceCorrect(string storagePlace)
@@ -46,20 +47,7 @@ namespace Warehouse.Domain.Services
             return isStoragePlaceCorrect;
         }
 
-        private int IncrementProductId()
-        {
-            var products = GetAllProducts();
 
-            if (products.Count == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                int ID = products.Max(k => k.ID + 1);
-                return ID;
-            }
-        }
 
         public Product GetProductById(int id)
         {
