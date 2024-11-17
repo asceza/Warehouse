@@ -25,6 +25,12 @@ namespace Warehouse.DAL
         /// <returns>Id нового продукта</returns>
         public int AddNewProduct(Product product)
         {
+            if (!File.Exists(_filePath))
+            {
+                System.IO.File.Create(_filePath);
+
+            }
+
             List<Product> products = GetAllProducts();
             product.Id = GetProductCount() + 1;
             products.Add(product);

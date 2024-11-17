@@ -52,7 +52,7 @@ namespace Warehouse.WebAPI.Controllers
             {
                 productsResponse.Add(product.ToProductResponse());
             }
-            return Ok(products);
+            return Ok(productsResponse);
         }
 
 

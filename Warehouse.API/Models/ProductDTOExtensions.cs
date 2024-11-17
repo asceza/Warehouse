@@ -21,8 +21,8 @@ namespace Warehouse.Domain.Contracts
                 newProduct.Article = product.Article;
                 newProduct.Category = product.Category;
                 newProduct.Amount = product.Amount;
-                newProduct.StoragePlace = product.StoragePlace;
-
+                var storagePlace = new StoragePlace(product.StoragePlace);
+                newProduct.StoragePlace = storagePlace;
                 return newProduct;
             }
         }
@@ -35,16 +35,17 @@ namespace Warehouse.Domain.Contracts
             }
             else
             {
-                return new ProductResponse
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Article = product.Article,
-                    Category = product.Category,
-                    Amount = product.Amount,
-                    UnitOfMeasurement = product.UnitOfMeasurement,
-                    StoragePlace = product.StoragePlace,
-                };
+                ProductResponse newProduct = new ProductResponse();
+                newProduct.Id = product.Id;
+                newProduct.Name = product.Name;
+                newProduct.Article = product.Article;
+                newProduct.Category = product.Category;
+                newProduct.Amount = product.Amount;
+                newProduct.UnitOfMeasurement = product.UnitOfMeasurement;
+                newProduct.StoragePlace = product.StoragePlace.Data;
+
+                return newProduct;
+
             }
         }
     }

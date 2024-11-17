@@ -23,17 +23,6 @@ namespace Warehouse.Domain.Services
         {
             int id = _productRepository.AddNewProduct(newProduct);
             return id;
-            //newProduct.ID = IncrementProductId();
-            //bool isStoragePlaceCorrect = IsStoragePlaceCorrect(newProduct.StoragePlace);
-            //if (isStoragePlaceCorrect)
-            //{
-            //    var isProductAdded = _productRepository.AddNewProduct(newProduct);
-            //    return isProductAdded;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
         }
 
 
@@ -43,12 +32,7 @@ namespace Warehouse.Domain.Services
             return products;
         }
 
-        //private bool IsStoragePlaceCorrect(string storagePlace)
-        //{
-        //    string pattern = @"^\d{3}-\d{3}-\d{3}"; // Маска xxx-xxx-xxx
-        //    bool isStoragePlaceCorrect = Regex.IsMatch(storagePlace, pattern);
-        //    return isStoragePlaceCorrect;
-        //}
+
 
 
 
