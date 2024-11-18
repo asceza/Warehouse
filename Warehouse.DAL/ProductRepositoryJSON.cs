@@ -58,7 +58,7 @@ namespace Warehouse.DAL
 
             if (products.Count == 0)
             {
-                return 1;
+                return 0;
             }
             else
             {

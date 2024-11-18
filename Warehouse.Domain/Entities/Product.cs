@@ -11,7 +11,7 @@ namespace Warehouse.Domain.Entities
         public ProductCategory Category { get; set; }
         public float Amount { get; set; }
         public UnitOfMeasurement UnitOfMeasurement { get; private set; }
-        public StoragePlace StoragePlace { get; set; } // xxx-xxx-xxx
+        public StoragePlace StoragePlace { get; set; }
 
 
 

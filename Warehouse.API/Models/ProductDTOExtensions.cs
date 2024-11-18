@@ -21,8 +21,7 @@ namespace Warehouse.Domain.Contracts
                 newProduct.Article = product.Article;
                 newProduct.Category = product.Category;
                 newProduct.Amount = product.Amount;
-                var storagePlace = new StoragePlace(product.StoragePlace);
-                newProduct.StoragePlace = storagePlace;
+                newProduct.StoragePlace = new StoragePlace(product.StoragePlace);
                 return newProduct;
             }
         }

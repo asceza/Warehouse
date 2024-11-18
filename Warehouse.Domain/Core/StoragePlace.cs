@@ -8,26 +8,56 @@ using Warehouse.Domain.Entities;
 
 namespace Warehouse.Domain.Core
 {
+    //public class StoragePlace
+    //{
+    //    public string Data { get; private set; }
+
+    //    const string pattern = @"^\d{3}-\d{3}-\d{3}"; // Маска xxx-xxx-xxx
+
+    //    public StoragePlace(string data)
+    //    {
+    //        bool isStoragePlaceCorrect = Regex.IsMatch(data, pattern);
+    //        if (isStoragePlaceCorrect)
+    //        {
+    //            Data = data;
+    //        }
+    //        else
+    //        {
+    //            throw new ArgumentException("Не верный формат StoragePlace");
+    //        }
+    //    }
+
+    //}
+
+
     public class StoragePlace
     {
-        public string Data { get; private set; }
+        private static Regex regex = new Regex(@"^\d{3}-\d{3}-\d{3}", RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
-        const string pattern = @"^\d{3}-\d{3}-\d{3}"; // Маска xxx-xxx-xxx
-
-        public bool IsStoragePlaceCorrect { get; private set; }
-        public StoragePlace(string data)
+        static bool CanAssing(string value)
         {
-            bool isStoragePlaceCorrect = Regex.IsMatch(data, pattern);
-            if (isStoragePlaceCorrect)
+            bool isMatch = regex.IsMatch(value);
+            return isMatch;
+        }
+
+
+        public string Data { get; init; }
+        
+        // Пустой конструктор для десериализации
+        public StoragePlace() { }
+
+        public StoragePlace(string value)
+        {
+            if (!CanAssing(value))
             {
-                Data = data;
-                IsStoragePlaceCorrect = true;
+                throw new ArgumentException("Invalid value format");
             }
             else
             {
-                throw new ArgumentException("Не верный формат StoragePlace");
+                Data = value;
             }
         }
-
     }
+
+
 }
