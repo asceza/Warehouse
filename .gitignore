@@ -364,3 +364,6 @@ FodyWeavers.xsd
 /review_3.md
 /comment.md
 /Warehouse.WebUI/Warehouse.WebUI.csproj
+/Warehouse.API/warehouse.db
+/Warehouse.API/warehouse.db-shm
+/Warehouse.API/warehouse.db-wal
