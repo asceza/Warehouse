@@ -25,14 +25,10 @@ namespace Warehouse.DAL
                 .Property(p => p.StoragePlace)
                 .HasConversion(
                     sp => sp.ToString(), // Преобразование в строку для БД
-                    str => ParseStoragePlace(str) // Преобразование из строки в StoragePlace
+                    str => StoragePlaceConverter.ToStoragePlace(str) // Преобразование из строки в StoragePlace
                 );
         }
 
-        private static StoragePlace ParseStoragePlace(string value)
-        {
-            // Логика преобразования строки в StoragePlace
-            return new StoragePlace { Data = value };
-        }
+
     }
 }
