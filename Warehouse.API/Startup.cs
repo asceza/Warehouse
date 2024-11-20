@@ -34,7 +34,8 @@ namespace WarehouseAPI
 
             services.AddControllers();
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IProductRepository, ProductRepositoryJSON>();
+            //services.AddScoped<IProductRepository, ProductRepositoryJSON>();
+            services.AddScoped<IProductRepository, ProductRepositorySQLite>();
 
             // Создание провайдера
             var serviceProvider = services.BuildServiceProvider();

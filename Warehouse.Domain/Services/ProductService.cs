@@ -33,9 +33,6 @@ namespace Warehouse.Domain.Services
         }
 
 
-
-
-
         public Product GetProductById(int id)
         {
             Product product = _productRepository.GetProductById(id);

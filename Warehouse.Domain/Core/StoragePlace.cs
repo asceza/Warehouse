@@ -57,6 +57,12 @@ namespace Warehouse.Domain.Core
                 Data = value;
             }
         }
+
+
+        public override string ToString()
+        {
+            return Data;
+        }
     }
 
 
