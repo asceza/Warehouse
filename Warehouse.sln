@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.API", "Warehouse.API\Warehouse.API.csproj", "{F80F9C48-357C-41B8-AF6E-B0C2BF9E2470}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.RazorWebUI", "Warehouse.RazorWebUI\Warehouse.RazorWebUI.csproj", "{0903006F-D662-4C30-AE55-0139E034E6BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.RazorWebUI", "Warehouse.RazorWebUI\Warehouse.RazorWebUI.csproj", "{0903006F-D662-4C30-AE55-0139E034E6BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

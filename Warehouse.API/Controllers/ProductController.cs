@@ -9,8 +9,6 @@ namespace Warehouse.WebAPI.Controllers
 
     [Route("api/[controller]")] // /api/product
     [ApiController]
-
-    
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
